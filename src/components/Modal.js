@@ -1,15 +1,24 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import useClickOutside from '../hooks/useClickOutside';
 import useShowModal from '../hooks/useShowModal';
 
 export default function Modal() {
     const ref = useRef();
-    const [showModal, setShowModal] = useShowModal(true);
+    const [showModal, setShowModal] = useShowModal(false);
+    const waitTime = 10000;
 
     useClickOutside(ref, () => {
         setShowModal(false);
     });
-    
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+          setShowModal(true);
+        }, waitTime);
+        setShowModal(false);
+        return () => clearTimeout(timer);
+      }, []);
+
     if (showModal) {
 
         return (
