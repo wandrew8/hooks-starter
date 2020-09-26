@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 function useShowData(initialValue) {
-    const [value, setValue] = useState(true);
+    const [value, setValue] = useState(false);
     return [value, setValue];
   }
   

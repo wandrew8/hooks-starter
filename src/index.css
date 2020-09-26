@@ -147,3 +147,9 @@ li:last-of-type {
   background: gray;
   color: white;
 }
+
+.countryPhoto {
+  width: 300px;
+  height: auto;
+  object-fit: cover;
+}
