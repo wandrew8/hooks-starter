@@ -27,7 +27,7 @@ export default function Modal() {
                 <h1>
                     This is my modal
                 </h1>
-                <p class="modal-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci unde, illum fugit modi perferendis enim aperiam, expedita quis quibusdam ea numquam soluta, placeat deleniti distinctio ab excepturi aliquid velit quia?</p>
+                <p className="modal-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci unde, illum fugit modi perferendis enim aperiam, expedita quis quibusdam ea numquam soluta, placeat deleniti distinctio ab excepturi aliquid velit quia?</p>
             </div>
         )
     } else {

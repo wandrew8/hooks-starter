@@ -1,17 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import DoughnutChart from '../components/DoughnutChart';
+import useShowData from '../hooks/useShowData';
 
-
-export default function Card({country, ranking, score}) {
+export default function Card({country, ranking, score, data}) {
+    const [ showData, setShowData ] = useShowData(false);
     return (
         <div>
-            {ranking} - {country} - {score}
+            <p>{ranking} - {country} - {score}</p>
+            <button onClick={() => setShowData(!showData)}>{showData ? 'Hide Less' : 'Show More'}</button>
+            {showData ? <DoughnutChart data={data} country={country} /> : null}
         </div>
     )
-}
-
-Card.propTypes = {
-    country: PropTypes.string,
-    ranking: PropTypes.number,
-    score: PropTypes.number
 }
