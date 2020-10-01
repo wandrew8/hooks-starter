@@ -694,7 +694,7 @@ const year2019 = [
     },
     {
       "Ranking": 64,
-      "Country": "Northern Cyprus",
+      "Country": "Cyprus",
       "Score": 5.718,
       "GDP": 1.263,
       "SocialSupport": 1.252,
