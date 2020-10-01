@@ -9,7 +9,7 @@ export default class Chart extends Component {
         <h2>The World's Happiest Countries</h2>
         <form onChange={(e) => setChartLength(e.target.value)}>
             <label for="top5">Top 5 Countries</label>
-            <input checked={chartLength === 5} type="radio" id="top5" name="chartLength" value={5}/>
+            <input checked={chartLength == 5} type="radio" id="top5" name="chartLength" value={5}/>
             <label for="top10">Top 10 Countries</label>
             <input type="radio" id="top10" name="chartLength" value={10}/>
             <label for="top25">Top 25 Countries</label>

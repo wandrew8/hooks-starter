@@ -1409,7 +1409,7 @@ const countryData = [
     },
     {
       "Country": "Estonia",
-      "Region": "BALTICS",
+      "Region": "Europe",
       "Population": 1324333,
       "Area": 45226,
       "Pop. Density (per sq. mi.)": "29,3",
@@ -2509,7 +2509,7 @@ const countryData = [
     },
     {
       "Country": "Latvia",
-      "Region": "BALTICS",
+      "Region": "Europe",
       "Population": 2274735,
       "Area": 64589,
       "Pop. Density (per sq. mi.)": "35,2",
@@ -2641,7 +2641,7 @@ const countryData = [
     },
     {
       "Country": "Lithuania",
-      "Region": "BALTICS",
+      "Region": "Europe",
       "Population": 3585906,
       "Area": 65200,
       "Pop. Density (per sq. mi.)": "55,0",

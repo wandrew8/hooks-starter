@@ -5,7 +5,7 @@ export default class Chart extends Component {
     render() {
     const { data, country } = this.props;
     return (
-      <div>
+      <div className="doughnut-chart-container">
         <h2>{country}</h2>
         <Doughnut ref="chart" data={data}/>
       </div>
