@@ -1,5 +1,6 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, createContext, useState, useMemo } from 'react';
 import Toggle from './Toggle';
+import Counter from './components/Counter';
 import Modal from './components/Modal';
 import Chart from './components/Chart';
 import ToggleYear from './components/ToggleYear';
@@ -11,9 +12,11 @@ import year2018 from './data/data2018';
 import year2017 from './data/data2017';
 import year2016 from './data/data2016';
 
+export const ModeContext = createContext();
 
 const App = () => {
   const [name, setName] = useTitleInput('');
+  const [ darkMode, setDarkMode ] = useState(false);
   const [ year, setYear ] = useState(year2019);
   const [ chartLength, setChartLength ] = useState(5);
   const [ page, setPage ] = useState(1);
@@ -21,7 +24,7 @@ const App = () => {
   const totalPages = Math.ceil(year.length / itemsPerPage);
   const ref = useRef();
   console.log(totalPages)
-
+  
   const getData = (dataSource, length, data) => {
     const array = [];
     for(let i = 0; i < length; i++) {
@@ -29,7 +32,15 @@ const App = () => {
     }
     return array;
   }
+  
+  const reverseString = word => {
+    console.log("function run")
+    return word.split("").reverse().join("");
+  }
 
+  const title = 'ydnA';
+  
+  const titleReversed = useMemo(() => reverseString(title), [title]);
   const getLabel = () => {
     if(chartLength === 5) {
       return 'Top Five Happiest Countries';
@@ -41,8 +52,6 @@ const App = () => {
       return 'All Countries';
     }
   }
-
-  
 
   const data = {
     labels: getData(year, chartLength, 'Country'),
@@ -71,61 +80,60 @@ const App = () => {
   };
 
   return (
-    <div className="main-wrapper">
-      <h1>Level Up Dishes</h1>
-      <form onSubmit={(e) => {
-        e.preventDefault();
-        formSubmit(name, setName, ref);
-        }}>
-        <input type="text" onChange={(e) => setName(e.target.value)} value={name} placeholder="Enter Your Name..." />
-        <button type="submit">Submit</button>
-      </form>
-      <p>Welcome{name ? `, ${name}!` : '!'}</p>
-      <Toggle />
-      <ToggleYear year={year} setYear={setYear}/>
-      <Chart data={data} chartLength={chartLength} setChartLength={setChartLength} />
-      <Modal/>
-      { year.filter((country, i) => {
-        return i >= (page - 1) * itemsPerPage && i < page * itemsPerPage; 
-      }).map(country => {
-        const doughnutData = {
-          labels: [
-            'GDP (per capita)',
-            'Social Support',
-            'Healthy Life Expectancy',
-            'Freedom to make life choices',
-            'Generosity',
-            'Perceptions of corruption'
-          ],
-          datasets: [{
-            data: [country.GDP, country.SocialSupport, country.HealthExpect, country.FreedomChoice, country.Generosity, country.PerceptionCorruption],
-            hoverBackgroundColor: '#fff',
-            pointBorderColor: '#fff',
-            hoverBorderColor: '#fff',
-            backgroundColor: [
-            '#fd79a8',
-            '#fab1a0',
-            '#ffeaa7',
-            '#81ecec',
-            '#74b9ff',
-            '#a29bfe'
+    <ModeContext.Provider
+      value={{
+        darkMode: darkMode
+      }}
+      >
+      <div className={darkMode ? "darkMode main-wrapper" : "main-wrapper" } ref={ref}>
+        <h1>Country Happiness Index, {titleReversed}</h1>
+        <Counter />
+        <button onClick={() => setDarkMode(!darkMode)} className="dark-mode-button">💡</button>
+        <ToggleYear year={year} setYear={setYear}/>
+        <Chart data={data} chartLength={chartLength} setChartLength={setChartLength} />
+        <Modal/>
+        { year.filter((country, i) => {
+          return i >= (page - 1) * itemsPerPage && i < page * itemsPerPage; 
+        }).map(country => {
+          const doughnutData = {
+            labels: [
+              'GDP (per capita)',
+              'Social Support',
+              'Healthy Life Expectancy',
+              'Freedom to make life choices',
+              'Generosity',
+              'Perceptions of corruption'
             ],
-            hoverBackgroundColor: [
-            'rgba(253, 121, 168, 0.8)',
-            'rgba(250, 177, 160,0.8)',
-            'rgba(255, 234, 167,0.8)',
-            'rgba(129, 236, 236,0.8)',
-            'rgba(116, 185, 255,0.8)',
-            'rgba(162, 155, 254,0.8)'
-            ]
-          }]
-        };
-        return (
-          <Card key={country.Rating} country={country.Country} score={country.Score.toFixed(2)} ranking={country.Ranking} data={doughnutData} />
-        )
-      })}
-      <Pagination page={page} setPage={setPage} totalPages={totalPages}/>
-    </div>
+            datasets: [{
+              data: [country.GDP.toFixed(2), country.SocialSupport.toFixed(2), country.HealthExpect.toFixed(2), country.FreedomChoice.toFixed(2), country.Generosity.toFixed(2), country.PerceptionCorruption.toFixed(2)],
+              hoverBackgroundColor: '#fff',
+              pointBorderColor: '#fff',
+              hoverBorderColor: '#fff',
+              backgroundColor: [
+              '#fd79a8',
+              '#fab1a0',
+              '#ffeaa7',
+              '#81ecec',
+              '#74b9ff',
+              '#a29bfe'
+              ],
+              hoverBackgroundColor: [
+              'rgba(253, 121, 168, 0.8)',
+              'rgba(250, 177, 160,0.8)',
+              'rgba(255, 234, 167,0.8)',
+              'rgba(129, 236, 236,0.8)',
+              'rgba(116, 185, 255,0.8)',
+              'rgba(162, 155, 254,0.8)'
+              ]
+            }]
+          };
+          return (
+            <Card key={country.Rating} country={country.Country} score={country.Score.toFixed(2)} ranking={country.Ranking} data={doughnutData} />
+          )
+        })}
+        <Pagination page={page} setPage={setPage} totalPages={totalPages}/>
+      </div>
+    </ModeContext.Provider>
   );
 };
 

@@ -1,10 +1,18 @@
 body {
   background: #f8f5f1;
   font-family: 'Poppins', sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+.darkMode {
+  background: #444;
+  color: #f8f5f1;
 }
 
 .main-wrapper {
   margin: 0 auto;
+  padding: 0rem 3rem;
   max-width: 700px;
   transition: 300ms ease-in;
 }
@@ -12,6 +20,9 @@ body {
 h1 {
   text-align: center;
   border-bottom: solid 2px #fbc89d;
+  transition: 300ms ease-in;
+  margin: 0;
+  padding: 2rem 0rem 0rem 0rem;
 }
 
 .form-row {
@@ -152,4 +163,54 @@ li:last-of-type {
   width: 300px;
   height: auto;
   object-fit: cover;
+}
+
+.showData {
+  transform: rotate(0.5turn);
+}
+
+.hideData {
+}
+
+.icon {
+  transition: 300ms ease-in-out;
+}
+
+.showMore {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.showMoreButton {
+  position: absolute;
+  top: 1px;
+  right: calc(50% - 50px);
+  border: none;
+  box-shadow: none;
+}
+
+.big {
+  font-size: 9rem;
+}
+
+.dark-mode-button {
+  position: fixed;
+  top: 0rem;
+  right: 0rem;
+  background: none;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.dark-mode-button:hover {
+  background: none;
+}
+
+.dark-mode-button:active, .dark-mode-button:focus {
+  outline: none;
+}
+
+.dark-mode-card {
+  background-color: blue;
 }
