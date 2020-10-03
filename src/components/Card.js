@@ -15,6 +15,7 @@ import middleEast from '../assets/images/middleEast.png';
 import northAfrica from '../assets/images/northAfrica.png';
 import northAmerica from '../assets/images/northAmerica.png';
 import oceania from '../assets/images/oceania.png';
+import unknown from '../assets/images/unknown.png';
 
 export default function Card({country, ranking, score, data}) {
     const [ showData, setShowData ] = useShowData(false);
@@ -29,39 +30,31 @@ export default function Card({country, ranking, score, data}) {
 
 
     const getImage = () => {
-        const region = countryInfo[0].Region;
+        const region = countryInfo[0] ? countryInfo[0].Region : "unknown";
         console.log(region)
         switch(region) {
             case "Africa":
               return africa;
-              break;
             case "Asia":
               return asia;
-              break;
             case "Eurasia":
               return eurasia;
-              break;
             case "Europe":
               return europe;
-              break;
             case "Eastern Europe":
               return europe;
-              break;
             case "Latin America and Caribean":
               return latinAmerica;
-              break;
-            case "North Africa":
+            case "Northern Africa":
               return northAfrica;
-              break;
             case "Middle East":
               return middleEast;
-              break;
             case "North America":
               return northAmerica;
-              break;
             case "Oceania":
               return oceania;
-              break;
+            case "unknown":
+              return unknown;
             default:
               return europe;
           }
@@ -81,15 +74,23 @@ export default function Card({country, ranking, score, data}) {
         <div className="card">
             <div className="card-heading-container">
                 <h2>{ranking} - {country} - {score}</h2>
-                <img src={`https://www.countryflags.io/${countryCode}/flat/64.png`} />
+                {countryCode && countryInfo[0] ? <img src={`https://www.countryflags.io/${countryCode}/flat/64.png`} /> : null }
             </div> 
             <div className="card-body-container">
-                {countryInfo[0] && <div>
-                    <p>{`${countryInfo[0].Country} - ${countryInfo[0].Region}`}</p>
-                    <p>Population: {numberFormatter.format(countryInfo[0].Population)}</p>
-                    <p>Area (square miles): {numberFormatter.format(countryInfo[0].Area)}</p>
-                    <p>GDP ($ per capita / year): {currencyFormatter.format(countryInfo[0].GDP)}</p>
-                    <p>Climate: {countryInfo[0].Climate}</p>
+                {countryInfo[0] ? <div>
+                    <p>{`${countryInfo[0].Country ? countryInfo[0].Country : null} - ${countryInfo[0].Region ? countryInfo[0].Region : null}`}</p>
+                    <p>Population: {numberFormatter.format(countryInfo[0].Population ? countryInfo[0].Population : 0)}</p>
+                    <p>Area (square miles): {numberFormatter.format(countryInfo[0].Area ? countryInfo[0].Area : 0)}</p>
+                    <p>GDP ($ per capita / year): {currencyFormatter.format(countryInfo[0].GDP ? countryInfo[0].GDP : 0)}</p>
+                    <p>Climate: {countryInfo[0].Climate ? countryInfo[0].Climate : 'unknown'}</p>
+                </div>
+                :
+                <div>
+                <p>{country}</p>
+                    <p>Population: unknown</p>
+                    <p>Area (square miles): unknown</p>
+                    <p>GDP ($ per capita / year): unknown</p>
+                    <p>Climate: unknown</p>
                 </div>}
                 <div className="image-container">
                     <img className="region-image" src={getImage()} alt={country} />
