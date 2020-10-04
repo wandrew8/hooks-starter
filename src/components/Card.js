@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import DoughnutChart from '../components/DoughnutChart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
@@ -68,9 +69,13 @@ export default function Card({country, ranking, score, data}) {
     
     const numberFormatter = new Intl.NumberFormat();
 
+    const slugify = (country) => {
+      return country.split(" ").join("-");
+    }
 
 
     return (
+      <Link to={`/countries/${slugify(country)}`}>
         <div className="card">
             <div className="card-heading-container">
                 <h2>{ranking} - {country} - {score}</h2>
@@ -102,5 +107,6 @@ export default function Card({country, ranking, score, data}) {
             </div>
             {showData ? <DoughnutChart data={data} country={country} /> : null}
         </div>
+      </Link>
     )
 }
