@@ -1,15 +1,15 @@
 {
-  "main.css": "/hooks-starter/static/css/main.7a9b2b13.chunk.css",
-  "main.js": "/hooks-starter/static/js/main.fc256d62.chunk.js",
-  "main.js.map": "/hooks-starter/static/js/main.fc256d62.chunk.js.map",
+  "main.css": "/hooks-starter/static/css/main.a5676e05.chunk.css",
+  "main.js": "/hooks-starter/static/js/main.1c1c8425.chunk.js",
+  "main.js.map": "/hooks-starter/static/js/main.1c1c8425.chunk.js.map",
   "runtime~main.js": "/hooks-starter/static/js/runtime~main.50a5b037.js",
   "runtime~main.js.map": "/hooks-starter/static/js/runtime~main.50a5b037.js.map",
-  "static/js/2.f467036d.chunk.js": "/hooks-starter/static/js/2.f467036d.chunk.js",
-  "static/js/2.f467036d.chunk.js.map": "/hooks-starter/static/js/2.f467036d.chunk.js.map",
+  "static/js/2.18504136.chunk.js": "/hooks-starter/static/js/2.18504136.chunk.js",
+  "static/js/2.18504136.chunk.js.map": "/hooks-starter/static/js/2.18504136.chunk.js.map",
   "index.html": "/hooks-starter/index.html",
-  "precache-manifest.6ae62f9fbb1a9ccc9aec5c7a42ecb11e.js": "/hooks-starter/precache-manifest.6ae62f9fbb1a9ccc9aec5c7a42ecb11e.js",
+  "precache-manifest.3c7b975bb26752664a023fd974dcc816.js": "/hooks-starter/precache-manifest.3c7b975bb26752664a023fd974dcc816.js",
   "service-worker.js": "/hooks-starter/service-worker.js",
-  "static/css/main.7a9b2b13.chunk.css.map": "/hooks-starter/static/css/main.7a9b2b13.chunk.css.map",
+  "static/css/main.a5676e05.chunk.css.map": "/hooks-starter/static/css/main.a5676e05.chunk.css.map",
   "static/media/africa.png": "/hooks-starter/static/media/africa.114da66a.png",
   "static/media/asia.png": "/hooks-starter/static/media/asia.d5b28b5e.png",
   "static/media/eurasia.png": "/hooks-starter/static/media/eurasia.3cf19d18.png",
@@ -18,5 +18,6 @@
   "static/media/middleEast.png": "/hooks-starter/static/media/middleEast.90b27d59.png",
   "static/media/northAfrica.png": "/hooks-starter/static/media/northAfrica.a508d88f.png",
   "static/media/northAmerica.png": "/hooks-starter/static/media/northAmerica.0d85272c.png",
-  "static/media/oceania.png": "/hooks-starter/static/media/oceania.5f350ce2.png"
+  "static/media/oceania.png": "/hooks-starter/static/media/oceania.5f350ce2.png",
+  "static/media/unknown.png": "/hooks-starter/static/media/unknown.2d899549.png"
 }

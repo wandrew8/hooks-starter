@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "fc256d625610352bae39",
-    "url": "/hooks-starter/static/css/main.7a9b2b13.chunk.css"
+    "revision": "1c1c842577f43ea5627c",
+    "url": "/hooks-starter/static/css/main.a5676e05.chunk.css"
   },
   {
-    "revision": "fc256d625610352bae39",
-    "url": "/hooks-starter/static/js/main.fc256d62.chunk.js"
+    "revision": "1c1c842577f43ea5627c",
+    "url": "/hooks-starter/static/js/main.1c1c8425.chunk.js"
   },
   {
     "revision": "50a5b037d1e0169582b6",
     "url": "/hooks-starter/static/js/runtime~main.50a5b037.js"
   },
   {
-    "revision": "f467036dece3d88b7234",
-    "url": "/hooks-starter/static/js/2.f467036d.chunk.js"
+    "revision": "18504136dbf5c7861a96",
+    "url": "/hooks-starter/static/js/2.18504136.chunk.js"
   },
   {
     "revision": "fdbc799adc4bfc02a05f4c91f21531f1",
@@ -52,7 +52,11 @@ self.__precacheManifest = [
     "url": "/hooks-starter/static/media/oceania.5f350ce2.png"
   },
   {
-    "revision": "630edc1b6e932445f404b03687b63c11",
+    "revision": "2d899549b2e0570e2ca4f09c502ba88c",
+    "url": "/hooks-starter/static/media/unknown.2d899549.png"
+  },
+  {
+    "revision": "a0f0de0f72a7bcd200ab829dca08d88f",
     "url": "/hooks-starter/index.html"
   }
 ];
